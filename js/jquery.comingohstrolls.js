@@ -68,7 +68,11 @@
 				var data = self.data('comingohstrolls');
 				if(data){
 					offsetTop = $(window).scrollTop();
-					console.log(offsetTop)
+					var targetOffsetTop = $(this).offset().top;
+					if(offsetTop===targetOffsetTop){
+						$(this).parent().find('a').removeClass('active');
+						$(this).addClass('active');
+					}
 				}
 			})
 		}

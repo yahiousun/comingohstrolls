@@ -5,6 +5,43 @@ body {
 	font-family: "Times New Roman", Times, serif;
 	font-size: 14px;
 }
-#test {
+
+#navi-demo {
+	position: fixed;
+	background-color: rgba(0,0,0,.5);
+	overflow: hidden;
+	width: 100%;
+}
+#navi-demo a {
+	width: 25%;
+	height: 30px;
+	line-height: 30px;
+	display: block;
+	float: left;
+	color: #FFFFFF;
+	text-align: center;
+	text-decoration: none;
+	box-shadow: 1px 0 0 #FFFFFF;
+}
+#navi-demo .active {
+	background-color: rgba(255,255,255,.5);
+	color: #333333;
+}
+.section {
+	height: 1000px;
+}
+#section-1 {
+	background-color: #FF0000;
+}
+#section-2 {
+	background-color: #00FF00;
+}
+#section-3 {
+	background-color: #0000FF;
+}
+#section-4 {
+	background-color: #FFFF00;
+}
+#gotop {
 	display: block;
 }

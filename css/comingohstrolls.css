@@ -2,35 +2,93 @@
 /* CSS Document */
 
 body {
-	font-family: "Times New Roman", Times, serif;
+	font-family: Arial, Helvetica, sans-serif;
 	font-size: 14px;
+	background-color: #FCFAF2;
 }
 
-#navi-demo {
+#navi {
 	position: fixed;
-	background-color: rgba(0,0,0,.5);
+	top: 100px;
+	left: 0px;
 	overflow: hidden;
-	width: 100%;
+	box-shadow: #787878 2px 2px 7px;
 }
-#navi-demo a {
-	width: 25%;
-	height: 30px;
-	line-height: 30px;
+#navi a {
+	width: 100px;
+	padding: 9px 0;
+	line-height: 1.618;
 	display: block;
-	float: left;
 	color: #FFFFFF;
+	background-color: #BDC0BA;
 	text-align: center;
 	text-decoration: none;
-	box-shadow: 1px 0 0 #FFFFFF;
+	border-bottom: #91989F solid 1px;
+	border-top: #DEE0DD solid 1px;
 }
-#navi-demo .active {
-	background-color: rgba(255,255,255,.5);
-	color: #333333;
+#navi a.first-child {
+	border-top: none;
+}
+#navi a.last-child {
+	border-bottom: none;
+}
+#navi .comingohstrolls {
+	background-color: #FCFAF2;
+	color: #1C1C1C;
 }
 .section {
-	height: 1000px;
+	width: 1024px;
+	padding: 50px 0;
+	margin: 0 auto;
+	overflow: hidden;
 }
-#section-1 {
+.section h2 {
+	font-size: 32px;
+	margin-bottom: 1em;
+	border-bottom: #828282 solid 1px;
+}
+.section h3 {
+	font-size: 24px;
+	margin-bottom: .2em;
+}
+.legend {
+	position: relative;
+}
+.legend p.en, .legend p.cn {
+	line-height: 3;
+}
+.legend p.en {
+	color: #1C1C1C;
+	margin-bottom: 2em;
+}
+.legend p.cn {
+	color: #828282;
+	position: absolute;
+	top: 1.618em;
+}
+.legend ul.en, .legend ul.cn {
+	padding-top: 15px;
+}
+.legend ul.en li {
+	margin-bottom: 2em;
+}
+.legend ul.cn {
+	position: absolute;
+	top: 1.5em;
+}
+.legend ul.cn li {
+	color: #828282;
+	margin-bottom: 2em;
+}
+.section .code {
+	color: #1C1C1C;
+	background-color: #BDC0BA;
+	border: #434343 solid 1px;
+	padding: 5px;
+	line-height: 1.414;
+	margin-bottom: 24px;
+}
+/*#section-1 {
 	background-color: #FF0000;
 }
 #section-2 {
@@ -41,7 +99,20 @@ body {
 }
 #section-4 {
 	background-color: #FFFF00;
-}
-#gotop {
+}*/
+#back-to-top {
 	display: block;
+	position: fixed;
+	right: 20px;
+	bottom: 20px;
+	width: 100px;
+	padding: 9px 0;
+	line-height: 1.618;
+	color: #FFFFFF;
+	background-color: #91989F;
+	text-align: center;
+	text-decoration: none;
+}
+#back-to-top:hover {
+	background-color: #080808;
 }

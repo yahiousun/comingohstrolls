@@ -21,44 +21,37 @@
 						duration: settings.duration,
 						response: settings.response,
 						active: settings.active,
+						parent: settings.parent,
 						callback: settings.callback
 					});
+					data = self.data('comingohstrolls');
 				}
-				self.comingohstrolls('run');
-			})
-		},
-		run: function(){
-			return this.each(function(){
-				var self = $(this);
-				var data = self.data('comingohstrolls');
+
+				var target, offsetTop = new Number;
+				if(data.target){
+					target = $(data.target);
+				}else if(self.attr('href') === '#'){
+					target = $('body')
+				}else{
+					target = $(self.attr('href'));
+				}
 				
-				if(data){ // check data flag
-					var target, offsetTop = new Number;
-					if(data.target){
-						target = $(data.target);
-					}else if(self.attr('href') === '#'){
-						target = $('body')
-					}else{
-						target = $(self.attr('href'));
-					}
+				offsetTop  = target.offset().top;
 				
-					offsetTop  = target.offset().top;
+				self.bind('click.comingohstrolls', function(){
+					$('body').stop().animate({
+						scrollTop: offsetTop
+					}, data.duration, data.easing, function(){
+						if(data.callback){ // if callback, callback
+							data.callback();
+						}
+					});
+					return false;
+				})
 				
-					self.bind('click.comingohstrolls', function(){
-						$('body').stop().animate({
-							scrollTop: offsetTop
-						}, data.duration, data.easing, function(){
-							if(data.callback){ // if callback, callback
-								data.callback();
-							}
-						});
-						return false;
-					})
-				
-					if(data.response){ // response handler
-						self.comingohstrolls('response');
-						$(window).bind('scroll.comingohstrolls', function(){self.comingohstrolls('response')});
-					}
+				if(data.response){ // response handler
+					self.comingohstrolls('response');
+					$(window).bind('scroll.comingohstrolls', function(){self.comingohstrolls('response')});
 				}
 			})
 		},
@@ -80,8 +73,9 @@
 				var data = self.data('comingohstrolls'); // get current settings
 				if(data&&options){
 					var settings = $.extend({}, data, options);
+					self.comingohstrolls('destroy'); // deactive the plugin
 					data = self.data('comingohstrolls', settings); // update data
-					self.comingohstrolls('run');
+					self.comingohstrolls('init'); // reactive
 				}
 			})
 		},
@@ -101,7 +95,7 @@
 					var offsetTop = $(document).scrollTop();
 					var targetOffsetTop = target.offset().top;
 					if(offsetTop>=targetOffsetTop){
-						$(this).parent().find('a').removeClass(data.active);
+						$(this).parent(data.parent).find('a').removeClass(data.active);
 						$(this).addClass(data.active);
 					}
 				}
@@ -126,6 +120,7 @@
 		duration: 500,
 		response: false,
 		active: 'comingohstrolls',
+		parent: 'ul',
 		callback: ''
 	}
 	

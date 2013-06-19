@@ -1,0 +1,150 @@
+<!doctype html>
+<html lang="zh">
+<head>
+<meta charset="utf-8">
+<title>comingohstrolls - a simple jQuery smooth scrolling plugin</title>
+<link href="assets/style.css" rel="stylesheet" />
+<script src="assets/jquery.min.js"></script>
+<script src="assets/prettify.js"></script>
+<script src="assets/jquery.comingohstrolls.js"></script>
+<script>
+$(document).ready(function(e) {
+	$('#navi a').comingohstrolls({
+		response: true
+	});
+	$('#back-to-top').comingohstrolls();
+	prettyPrint();
+});
+</script>
+</head>
+
+<body>
+
+<ul id="navi">
+	<li><a href="#section-1">Overview</a></li>
+	<li><a href="#section-2">Features</a></li>
+	<li><a href="#section-3">Usage</a></li>
+	<li><a href="#section-4">Methods</a></li>
+	<li class="last-child"><a href="#section-5">Settings</a></li>
+</ul>
+<div id="page">
+	<h1 id="title">comingohstrolls</h1>
+	<p id="subtitle">a simple jQuery smooth scrolling plugin</p>
+	<div class="section" id="section-1">
+		<p>Released under the MIT License. Source on Github (changelog).<br>
+Compatible with: jQuery 1.4+ in Firefox, Safari, Chrome, Opera, Internet Explorer 7+</p>
+	</div>
+	<div class="section" id="section-2">
+		<h2>Features</h2>
+		<ul class="list-items">
+			<li>Friendly, comingohstrolls use anchor as target, if the script not working, it will work just fine.</li>
+			<li>A responsive menu on scrolling.</li>
+			<li>Update the plugin settings any time.</li>
+			<li>Deactivate the plugin any time.</li>
+			<li>Customizable.</li>
+		</ul>
+	</div>
+	
+	<div class="section" id="section-3">
+		<h2>Usage</h2>
+		<p>comingohstrolls accepts settings from an object of key/value pairs, and can be assigned to any &lt;a&gt; element.</p>
+		<pre class="prettyprint linenums">$(selector).comingohstrolls(method, options);</pre>
+		<p>Examples</p>
+		<pre class="prettyprint linenums">// Default settings
+$(selector).comingohstrolls({
+	target: &quot&quot,
+	easing: &quotswing&quot,
+	duration: 500,
+	response: false,
+	active: &quotcomingohstrolls&quot,
+	callback: &quot&quot
+});</pre>
+		<pre class="prettyprint linenums">// Navi on this page.
+$(&quot;#navi a&quot;).comingohstrolls({
+	response: true // response on scrolling
+})</pre>
+	<pre class="prettyprint linenums">// Back to top button on this page.
+$(&quot;#back-to-top&quot;).comingohstrolls()</pre>
+	</div>
+	<div class="section" id="section-4">
+		<h2>Methods</h2>
+		<table>
+			<thead>
+				<tr>
+					<th>Method</th>
+					<th>Description</th>
+				</tr>
+			</thead>
+			<tbody>
+				<tr>
+					<th>init</th>
+					<td>Initialization method. if not set a method, it will call init method.</td>
+				</tr>
+				<tr>
+					<th>destroy</th>
+					<td>Deactivate the plugin entity.</td>
+				</tr>
+				<tr>
+					<th>update</th>
+					<td>update the plugin entity settings.</td>
+				</tr>
+			</tbody>
+		</table>
+	</div>
+	<div class="section" id="section-5">
+		<h2>Settings</h2>
+		<table>
+			<thead>
+				<tr>
+					<th>Property</th>
+					<th>Default</th>
+					<th>Description</th>
+				</tr>
+			</thead>
+			<tbody>
+				<tr>
+					<th>target</th>
+					<td>null</td>
+					<td>Selector(unique), if not set, it will use href as target, set '#' it will scroll to top.</td>
+				</tr>
+				<tr>
+					<th>easing</th>
+					<td>swing</td>
+					<td>easing method, support easing plugin.</td>
+				</tr>
+				<tr>
+					<th>duration</th>
+					<td>500</td>
+					<td>animate duration, unit: milliseconds.</td>
+				</tr>
+				<tr>
+					<th>response</th>
+					<td>false</td>
+					<td>response on scrolling, type: boolean.</td>
+				</tr>
+				<tr>
+					<th>active</th>
+					<td>comingohstrolls</td>
+					<td>a class name will add on the current menu item, only when response is true.</td>
+				</tr>
+				<tr>
+					<th>callback</th>
+					<td>null</td>
+					<td>a callback function after scroll.</td>
+				</tr>
+			</tbody>
+		</table>
+		<p>You can also change the default plugin settings.</p>
+		<pre class="prettyprint linenums">$.fn.comingohstrolls.defaults = {
+	target: &quot;&quot;,
+	easing: &quot;swing&quot;,
+	duration: 500,
+	response: false,
+	active: &quot;comingohstrolls&quot;,
+	callback: &quot;&quot;
+}</pre>
+	</div>
+</div><!-- #page -->
+<a href="#" id="back-to-top">Back to top</a>
+</body>
+</html>

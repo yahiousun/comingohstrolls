@@ -1,8 +1,9 @@
 /*
  * jQuery comingohstrolls
- * ver 0.2 beta
- * 2013-06-18
+ * ver 0.3
+ * 2013-06-20
  * by yahiousun
+ * http://yahiousun.github.io/comingohstrolls/
  * license MIT
 */
 
@@ -29,11 +30,17 @@
 
 				var target, offsetTop = new Number;
 				if(data.target){
-					target = $(data.target);
+					if(/^#{1}[a-zA-Z]{1}([a-zA-Z0-9]|[-_:.])*$/g.test(data.target)){ // if anchor link
+						target = $(data.target);
+					}else{
+						$.error('Wrong target '+data.target+' for jQuery.comingohstrolls.');
+					}
 				}else if(self.attr('href') === '#'){
 					target = $('body')
-				}else{
+				}else if(/^#{1}[a-zA-Z]{1}([a-zA-Z0-9]|[-_:.])*$/g.test(self.attr('href'))){ // if anchor link
 					target = $(self.attr('href'));
+				}else{
+					$.error('Wrong target '+self.attr('href')+' for jQuery.comingohstrolls.');
 				}
 				
 				offsetTop  = target.offset().top;
@@ -86,11 +93,17 @@
 				if(data){			
 					var target, offsetTop = new Number;
 					if(data.target){
-						target = $(data.target);
+						if(/^#{1}[a-zA-Z]{1}([a-zA-Z0-9]|[-_:.])*$/g.test(data.target)){ // if anchor link
+							target = $(data.target);
+						}else{
+							$.error('Wrong target '+data.target+' for jQuery.comingohstrolls.');
+						}
 					}else if(self.attr('href') === '#'){
 						target = $('body')
-					}else{
+					}else if(/^#{1}[a-zA-Z]{1}([a-zA-Z0-9]|[-_:.])*$/g.test(self.attr('href'))){
 						target = $(self.attr('href'));
+					}else{
+						$.error('Wrong target '+self.attr('href')+' for jQuery.comingohstrolls.');
 					}
 					var offsetTop = $(document).scrollTop();
 					var targetOffsetTop = target.offset().top;

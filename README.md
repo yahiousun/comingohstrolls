@@ -1,6 +1,6 @@
 comingohstrolls
 ===============
-<p>Released under the MIT License. Source on Github (changelog).<br>
+<p>A simple jQuery smooth scroll plugin, released under the MIT License.<br>
 Compatible with: jQuery 1.4+ in Firefox, Safari, Chrome, Opera, Internet Explorer 7+</p>
 <h2>Features</h2>
 <ul>

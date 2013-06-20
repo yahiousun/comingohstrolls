@@ -189,6 +189,57 @@ a:hover {
 	color: #FFFFFB;
 }
 
+/* Google Code Prettify 
+------------------------------------------------------------------------------ */
+.prettyprint .str { color: #CB1B45; } /* string  - kurenai */
+.prettyprint .kwd { color: #58B2DC; } /* keyword - sora */
+.prettyprint .com { color: #91989F; font-style: italic; } /* comment - hai */
+.prettyprint .typ { color: #58B2DC; } /* type - sora */
+.prettyprint .lit { color: #CB1B45; } /* literal - kurenai */
+.prettyprint .pun { color: #434343; } /* punctuation - keshizumi */
+.prettyprint .pln { color: #434343; } /* plaintext - keshizumi */
+.prettyprint .tag { color: #005CAF; } /* html/xml tag - ruri */
+.prettyprint .atn { color: #00AA90; } /* html/xml attribute name - aomidori */
+.prettyprint .atv { color: #CB1B45; } /* html/xml attribute value - kurenai */
+.prettyprint .dec { color: #CB1B45; } /* decimal - kurenai */
+
+.prettyprint {
+	background-color: #EEF7FB;
+	font-family: Consolas, "Liberation Mono", Courier, monospace;
+	font-size: 13px;
+	line-height: 1.414;
+	white-space: pre-wrap;
+	padding: 5px 20px;
+	border-left: #CDE8F4 solid 4px;
+	margin-bottom: 20px;
+}
+
+/* Specify class=linenums on a pre to get line numbering */
+ol.linenums {
+	margin: 0;
+	list-style-type: decimal;
+	padding-left: 20px;
+}
+ol.linenums li {
+	color: #91989F;
+}
+li.L0,li.L1,li.L2,li.L3,li.L5,li.L6,li.L7,li.L8 {}
+/* Alternate shading for lines */
+li.L1,li.L3,li.L5,li.L7,li.L9 {}
+
+@media print {
+.prettyprint .str { color: #CB1B45; }
+.prettyprint .kwd { color: #58B2DC; font-weight: bold; }
+.prettyprint .com { color: #91989F; font-style: italic; }
+.prettyprint .typ { color: #58B2DC; font-weight: bold; }
+.prettyprint .lit { color: #CB1B45; }
+.prettyprint .pun { color: #434343; }
+.prettyprint .pln { color: #434343; }
+.prettyprint .tag { color: #005CAF; font-weight: bold; }
+.prettyprint .atn { color: #CB1B45; }
+.prettyprint .atv { color: #CB1B45; }
+}
+
 /* Tablet Layout
 ------------------------------------------------------------------------------ */
 
@@ -269,56 +320,11 @@ a:hover {
 	padding: 9px 0;
 	display: none;
 }
-	
-}
-
-/* Google Code Prettify 
------------------------------------------------------------------------------- */
-.prettyprint .str { color: #CB1B45; } /* string  - kurenai */
-.prettyprint .kwd { color: #58B2DC; } /* keyword - sora */
-.prettyprint .com { color: #91989F; font-style: italic; } /* comment - hai */
-.prettyprint .typ { color: #58B2DC; } /* type - sora */
-.prettyprint .lit { color: #CB1B45; } /* literal - kurenai */
-.prettyprint .pun { color: #434343; } /* punctuation - keshizumi */
-.prettyprint .pln { color: #434343; } /* plaintext - keshizumi */
-.prettyprint .tag { color: #005CAF; } /* html/xml tag - ruri */
-.prettyprint .atn { color: #00AA90; } /* html/xml attribute name - aomidori */
-.prettyprint .atv { color: #CB1B45; } /* html/xml attribute value - kurenai */
-.prettyprint .dec { color: #CB1B45; } /* decimal - kurenai */
-
+/* Google Code Prettify */
 .prettyprint {
-	background-color: #EEF7FB;
-	font-family: Consolas, "Liberation Mono", Courier, monospace;
-	font-size: 13px;
-	line-height: 1.414;
-	white-space: pre-wrap;
-	padding: 5px 20px;
-	border-left: #CDE8F4 solid 4px;
-	margin-bottom: 20px;
+	padding: 5px 2px 5px 3px;
 }
-
-/* Specify class=linenums on a pre to get line numbering */
 ol.linenums {
-	margin: 0;
-	list-style-type: decimal;
 	padding-left: 20px;
 }
-ol.linenums li {
-	color: #91989F;
-}
-li.L0,li.L1,li.L2,li.L3,li.L5,li.L6,li.L7,li.L8 {}
-/* Alternate shading for lines */
-li.L1,li.L3,li.L5,li.L7,li.L9 {}
-
-@media print {
-.prettyprint .str { color: #CB1B45; }
-.prettyprint .kwd { color: #58B2DC; font-weight: bold; }
-.prettyprint .com { color: #91989F; font-style: italic; }
-.prettyprint .typ { color: #58B2DC; font-weight: bold; }
-.prettyprint .lit { color: #CB1B45; }
-.prettyprint .pun { color: #434343; }
-.prettyprint .pln { color: #434343; }
-.prettyprint .tag { color: #005CAF; font-weight: bold; }
-.prettyprint .atn { color: #CB1B45; }
-.prettyprint .atv { color: #CB1B45; }
 }

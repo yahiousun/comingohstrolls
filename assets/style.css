@@ -52,14 +52,27 @@ body {
 	font-size: 14px;
 	font-family: Arial, Helvetica, sans-serif;
 }
-
-/* Default Layout */
+a {
+	color: #005CAF;
+	outline: none;
+	text-decoration: none;
+}
+a:hover {
+	color: #58B2DC;
+}
+.email {
+	unicode-bidi: bidi-override;
+	direction: rtl;
+	color: #005CAF;
+}
+/* Default Layout 
+------------------------------------------------------------------------------ */
 #navi {
 	position: fixed;
 	top: 100px;
 	left: 0;
 	width: 100px;
-	height: 310px;
+	height: 309px;
 	overflow: hidden;
 	box-shadow: #BDC0BA 7px 7px 2px;
 }
@@ -70,26 +83,30 @@ body {
 #navi li a {
 	width: 100px;
 	padding: 19px 0;
-	color: #005CAF;
-	background-color: #CDE8F4;
+	color: #FFFFFB;
+	background-color: #58B2DC;
 	text-align: center;
 	text-decoration: none;
-	text-shadow: #EEF7FB 0 1px 1px;
 	line-height: 1.618;
 	display: block;
-	border-top: #EEF7FB solid 1px;
-	border-bottom: #58B2DC solid 1px;
+	border-top: #CDE8F4 solid 1px;
+	border-bottom: #3A8FB7 solid 1px;
+}
+#navi li a:hover {
+	color: #005CAF;
+	background-color: #CDE8F4;
 }
 #navi .last-child a {
 	border-bottom: none;
 }
 #navi li .comingohstrolls {
-	color: #FFFFFB;
-	background-color: #58B2DC;
+	color: #005CAF;
+	background-color: #EEF7FB;
 }
 #page {
 	width: 1024px;
 	margin: 50px auto;
+	overflow: hidden;
 }
 #title {
 	font-size: 36px;
@@ -122,6 +139,7 @@ body {
 	margin-bottom: 1em;
 	list-style-type: disc;
 	list-style-position: inside;
+	padding-left: 5px;
 }
 #page table {
 	width: 100%;
@@ -159,7 +177,6 @@ body {
 	background-color: #CDE8F4;
 	text-align: center;
 	text-decoration: none;
-	text-shadow: #EEF7FB 0 1px 1px;
 	line-height: 1.618;
 	display: block;
 	position: fixed;
@@ -167,8 +184,96 @@ body {
 	bottom: 20px;
 	box-shadow: #BDC0BA 7px 7px 2px;
 }
-/* Google Code Prettify */
+#back-to-top:hover {
+	background-color: #58B2DC;
+	color: #FFFFFB;
+}
 
+/* Tablet Layout
+------------------------------------------------------------------------------ */
+
+@media only screen and (min-width: 768px) and (max-width: 991px) {
+
+#navi {
+	width: 100%;
+	height: 40px;
+	top: 0px;
+	left: 0px;
+	-webkit-box-shadow: #BDC0BA 0 7px 2px;
+	-moz-box-shadow: #BDC0BA 0 7px 2px;
+	-o-box-shadow: #BDC0BA 0 7px 2px;
+	box-shadow: #BDC0BA 0 7px 2px;
+}
+#navi li {
+	width: 20%;
+	float: left;
+}
+#navi li a {
+	width: auto;
+	padding: 9px 0;
+	border-top: none;
+	border-right: #3A8FB7 solid 1px;
+	border-bottom: none;
+	border-left: #CDE8F4 solid 1px;
+}
+#page {
+	width: 100%;
+	padding: 70px 0 50px;
+}
+#page .section {
+	margin: 0 20px 20px;
+}
+#back-to-top {
+	padding: 9px 0;
+}
+}
+
+@media only screen and (max-width: 767px) {
+
+#navi {
+	width: 100%;
+	height: 40px;
+	top: 0px;
+	left: 0px;
+	-webkit-box-shadow: #BDC0BA 0 7px 2px;
+	-moz-box-shadow: #BDC0BA 0 7px 2px;
+	-o-box-shadow: #BDC0BA 0 7px 2px;
+	box-shadow: #BDC0BA 0 7px 2px;
+}
+#navi li {
+	width: 20%;
+	float: left;
+}
+#navi li a {
+	width: auto;
+	padding: 9px 0;
+	border-top: none;
+	border-right: #3A8FB7 solid 1px;
+	border-bottom: none;
+	border-left: #CDE8F4 solid 1px;
+}
+#page {
+	width: 100%;
+	padding: 50px 0;
+}
+#page .section {
+	margin: 0 10px 20px;
+}
+#page table thead th {
+	padding: 10px 5px;
+}
+#page table tbody th, #page table tbody td {
+	padding: 10px 5px;
+}
+#back-to-top {
+	padding: 9px 0;
+	display: none;
+}
+	
+}
+
+/* Google Code Prettify 
+------------------------------------------------------------------------------ */
 .prettyprint .str { color: #CB1B45; } /* string  - kurenai */
 .prettyprint .kwd { color: #58B2DC; } /* keyword - sora */
 .prettyprint .com { color: #91989F; font-style: italic; } /* comment - hai */

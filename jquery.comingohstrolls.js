@@ -108,7 +108,7 @@
 					var offsetTop = $(document).scrollTop();
 					var targetOffsetTop = target.offset().top;
 					if(offsetTop>=targetOffsetTop){
-						$(this).parent(data.parent).find('a').removeClass(data.active);
+						$(this).parents(data.parent).find('a').removeClass(data.active);
 						$(this).addClass(data.active);
 					}
 				}

@@ -1,7 +1,7 @@
 comingohstrolls
 ===============
 <p>A simple jQuery smooth scroll plugin, released under the MIT License.<br>
-Compatible with: jQuery 1.4+ in Firefox, Safari, Chrome, Opera, Internet Explorer 7+</p>
+Compatible with: jQuery 1.4+ in Firefox, Safari, Chrome, Opera, Internet Explorer 7+, Android, iOS</p>
 <h2>Features</h2>
 <ul>
   <li>Friendly, comingohstrolls use anchor as target, if the script not working, it will work just fine.</li>
@@ -83,6 +83,16 @@ Compatible with: jQuery 1.4+ in Firefox, Safari, Chrome, Opera, Internet Explore
       <td>null</td>
       <td>a callback function after scroll.</td>
     </tr>
+    <tr>
+      <th>trigger</th>
+      <td>click</td>
+      <td>event trigger.</td>
+    </tr>
+    <tr>
+      <th>hidden</th>
+      <td>false</td>
+      <td>hidden self, until window scrollTop is greater than the half screen height.</td>
+    </tr>
   </tbody>
 </table>
 <p>You can also change the default plugin settings.</p>
@@ -93,9 +103,13 @@ Compatible with: jQuery 1.4+ in Firefox, Safari, Chrome, Opera, Internet Explore
 	response: false,
 	active: &quot;comingohstrolls&quot;,
 	parent: &quot;ul&quot;,
-	callback: &quot;&quot;
+	callback: &quot;&quot;,
+	trigger: &quot;click&quot;,
+	hidden: false
 }</pre>
 
 <h2 id="changelog">Changelog</h2>
+<h3>Version 0.4 - 2013/07/15</h3>
+<p>Added hidden function, fixed compatibility issues.</p>
 <h3>Version 0.3 - 2013/06/20</h3>
 <p>Updated manifest file, fixed parent element match bug.</p>

@@ -3,25 +3,11 @@
 <head>
 <meta charset="utf-8">
 <meta name="description" content="comingohstrolls - A simple jQuery smooth scrolling plugin">
-<meta name="keywords" content="javascript, jQuery, smooth, scroll, plugin">
+<meta name="keywords" content="javascript, jQuery, smooth, scroll, plugin, mobile">
 <meta name="author" content="yahiousun">
 <meta name="viewport" content="width=device-width, initial-scale=1, user-scalable=no, maximum-scale=1">
 <title>comingohstrolls - a simple jQuery smooth scrolling plugin</title>
 <link href="assets/style.css" rel="stylesheet" />
-<script src="assets/jquery.min.js"></script>
-<script src="assets/prettify.js"></script>
-<script src="assets/jquery.comingohstrolls.min.js"></script>
-<script>
-$(document).ready(function(e) {
-	$('#navi').find('a').each(function(){ // This will work on my 007SH, I don't know how this happen, but a selector like "#navi a" doesn't work on android 2.3
-		$(this).comingohstrolls({
-			response: true
-		});
-	});
-	$('#back-to-top').comingohstrolls();
-	prettyPrint();
-});
-</script>
 </head>
 
 <body>
@@ -38,7 +24,7 @@ $(document).ready(function(e) {
 		<h1 id="title">comingohstrolls</h1>
 		<p id="subtitle">a simple jQuery smooth scrolling plugin</p>
 		<p>Released under the MIT License. Source on <a href="https://github.com/yahiousun/comingohstrolls" target="_blank">Github</a> <a href="https://github.com/yahiousun/comingohstrolls#changelog" target="_blank">(changelog)</a>.<br>
-Compatible with: jQuery 1.4+ in Firefox, Safari, Chrome, Opera, Internet Explorer 7+</p>
+Compatible with: jQuery 1.4+ in Firefox, Safari, Chrome, Opera, Internet Explorer 7+, Android, iOS</p>
 	</div>
 	<div class="section" id="section-2">
 		<h2>Features</h2>
@@ -65,6 +51,8 @@ $(selector).comingohstrolls({
 	response: false,
 	active: &quot;comingohstrolls&quot;,
 	callback: &quot;&quot;
+	trigger: &quot;click&quot;,
+	hidden: false;
 });</pre>
 		<pre class="prettyprint linenums">// Navi on this page.
 $(&quot;#navi a&quot;).comingohstrolls({
@@ -135,7 +123,7 @@ $(&quot;#back-to-top&quot;).comingohstrolls()</pre>
 					<td>a class name will add on the current menu item, only when response is true.</td>
 				</tr>
 				<tr>
-					<th>parent</th>
+					<th>parents</th>
 					<td>ul</td>
 					<td>match parent element, only when response is true.</td>
 				</tr>
@@ -143,6 +131,16 @@ $(&quot;#back-to-top&quot;).comingohstrolls()</pre>
 					<th>callback</th>
 					<td>null</td>
 					<td>a callback function after scroll.</td>
+				</tr>
+				<tr>
+					<th>trigger</th>
+					<td>click</td>
+					<td>event trigger.</td>
+				</tr>
+				<tr>
+					<th>hidden</th>
+					<td>false</td>
+					<td>hidden self, until window scrollTop is greater than the half screen height.</td>
 				</tr>
 			</tbody>
 		</table>
@@ -153,8 +151,10 @@ $(&quot;#back-to-top&quot;).comingohstrolls()</pre>
 	duration: 500,
 	response: false,
 	active: &quot;comingohstrolls&quot;,
-	parent: &quot;ul&quot;,
-	callback: &quot;&quot;
+	parents: &quot;ul&quot;,
+	callback: &quot;&quot;,
+	trigger: &quot;click&quot;,
+	hidden: false;
 }</pre>
 	</div>
 	<div class="section" id="section-6">
@@ -173,6 +173,22 @@ $(&quot;#back-to-top&quot;).comingohstrolls()</pre>
 })(window,document,'script','//www.google-analytics.com/analytics.js','ga');
 ga('create', 'UA-41880680-1', 'yahiousun.github.io');
 ga('send', 'pageview');
+</script>
+<script>window.jQuery || document.write("<script src='assets/jquery.min.js'><\/script>")</script>
+<script src="assets/jquery.comingohstrolls.min.js"></script>
+<script src="assets/prettify.js"></script>
+<script>
+$(document).ready(function(e) {
+	$('#navi').find('a').each(function(){
+		$(this).comingohstrolls({
+			response: true
+		});
+	});
+	$('#back-to-top').comingohstrolls({
+		hidden: true
+	});
+	prettyPrint();
+});
 </script>
 </body>
 </html>

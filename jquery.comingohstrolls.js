@@ -1,7 +1,7 @@
 /*
  * jQuery comingohstrolls
- * ver 0.4
- * 2013-07-15
+ * ver 0.5
+ * 2013-11-01
  * by yahiousun
  * http://yahiousun.github.io/comingohstrolls/
  * license MIT
@@ -10,12 +10,17 @@
 (function($){
 	var comingohstrolls = {
 		name: 'comingohstrolls',
-		version: '0.4',
-		date: '2013-07-15',
+		version: '0.5',
+		date: '2013-11-01',
 		author: 'yahiousun',
 		url: 'http://yahiousun.github.io/comingohstrolls/',
 		license: 'MIT'
 	}
+	
+	var uuid = function(){
+		return new Date().getTime();
+	}
+	
 	var methods = {
 		init: function(options){
 			var settings = $.extend({}, $.fn.comingohstrolls.defaults, options)
@@ -32,7 +37,9 @@
 						parents: settings.parents,
 						callback: settings.callback,
 						trigger: settings.trigger,
-						hidden: settings.hidden
+						hidden: settings.hidden,
+						migrate: settings.migrate,
+						uuid: settings.uuid || uuid()
 					});
 					data = self.data(comingohstrolls.name);
 				}
@@ -52,9 +59,12 @@
 					$.error('Wrong target '+self.attr('href')+' for jQuery.'+comingohstrolls.name+'.');
 				}
 				
-				offsetTop  = target.offset().top;
-				
-				self.bind(data.trigger+'.'+comingohstrolls.name, function(){
+				self.on(data.trigger+'.'+comingohstrolls.name, function(){
+					if(data.migrate && typeof(data.migrate) === "number"){ // Offset correction
+						offsetTop = target.offset().top + data.migrate;
+					}else{
+						offsetTop = target.offset().top;
+					}
 					var invoked = false; // callback is completed?
 					$('html, body').stop().animate({
 						scrollTop: offsetTop
@@ -73,11 +83,11 @@
 				
 				if(data.response){ // response handler
 					self.comingohstrolls('response');
-					$(window).bind('scroll.'+comingohstrolls.name, function(){self.comingohstrolls('response')});
+					$(window).on('scroll.'+comingohstrolls.name+data.uuid, function(){self.comingohstrolls('response')});
 				}
 				if(data.hidden){ // response handler
 					self.comingohstrolls('hidden');
-					$(window).bind('scroll.'+comingohstrolls.name, function(){self.comingohstrolls('hidden')});
+					$(window).on('scroll.'+comingohstrolls.name+data.uuid, function(){self.comingohstrolls('hidden')});
 				}
 			})
 		},
@@ -86,8 +96,8 @@
 				var self = $(this);
 				var data = self.data(comingohstrolls.name); // data flag
 				if(data){ // if initialized, remove event handler, data and class
-					self.unbind(data.trigger+'.'+comingohstrolls.name);
-					$(window).unbind('scroll.'+comingohstrolls.name);
+					self.off(data.trigger+'.'+comingohstrolls.name);
+					$(window).off('scroll.'+comingohstrolls.name+data.uuid);
 					self.removeData(comingohstrolls.name);
 					self.removeClass(data.active);
 				}
@@ -141,9 +151,21 @@
 					var offsetTop = $(document).scrollTop();
 					var wh = $(window).height();
 					if(offsetTop > (wh/2)){
-						$(this).fadeIn(data.duration);
+						if($(this).is(":visible")){
+							if($(this).is(":animated")){
+								// do nothing
+							}
+						}else{
+							$(this).fadeIn(data.duration/2);
+						}
 					}else if(offsetTop < (wh/2)){
-						$(this).fadeOut(data.duration);
+						if($(this).is(":visible")){
+							if($(this).is(":animated")){
+								// do nothing
+							}else{
+								$(this).fadeOut(data.duration/2);
+							}
+						}
 					}
 				}
 			})
@@ -173,6 +195,8 @@
 		parents: 'ul',
 		callback: '',
 		trigger: 'click',
-		hidden: false
+		hidden: false,
+		migrate: false,
+		uuid: null
 	}
 })(jQuery);
